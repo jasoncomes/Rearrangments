@@ -1,0 +1,4 @@
+/**
+ * @name Moving Fields
+ * @desc JS for the animation and reoder of the form fields.
+ */var typewatch=function(){var e=0;return function(t,n){clearTimeout(e);e=setTimeout(t,n)}}();$("input").keyup(function(){typewatch(function(){var e=$('input[type="text"]'),t=e.map(function(e,t){return{id:t.id,v:t.value}}).get();t.sort(function(e,t){var n=e.v.toLowerCase().trim(),r=t.v.toLowerCase().trim();n==""&&(n="zzzzzzz");r==""&&(r="zzzzzzz");return n>r?1:n<r?-1:0});$.each(t,function(e,t){var n=e+1;$("input#"+t.id).parent(".field").attr("id","order_"+n)})},500)});$("#openReadmore").on("click",function(){$(".readme").css("left","0%")});$("#close").on("click",function(){$(".readme").css("left","-100%")});
